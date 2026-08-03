@@ -168,11 +168,16 @@ keyed by authenticated user id (falls back to IP for unauthenticated
 requests). CORS only allows the single origin configured in
 `FRONTEND_ORIGIN` — no wildcard.
 
-## Frontend (Phase 2)
+## Frontend
 
-A minimal Next.js app in `/frontend` — its only job is to prove the backend
-works: sign up/log in, load a show's seat map, hold/confirm seats, and watch
-updates arrive live over the WebSocket in a second tab.
+A Next.js app in `/frontend` with a real booking flow — no manual UUID
+pasting required:
+
+- `/login` — sign up or log in (token persisted in localStorage)
+- `/shows` — browse all shows, pulled from `GET /shows` (venue name/city/date included)
+- `/shows/[id]` — a theater-style seat map: select one or more seats, **Hold**
+  them (with a live countdown before the hold expires), then **Confirm & Pay**.
+  Seat colors update instantly for every connected client via the WebSocket.
 
 ```bash
 cd frontend
@@ -181,10 +186,10 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`, sign up, paste in a show UUID (from
-`python -m scripts.seed`'s output), and click Load Seats. Open the same page
-in a second tab and hold the same seat from both — only one should succeed,
-and both tabs' grids update instantly via the WebSocket.
+Open `http://localhost:3000`, sign up, click into the seeded show, and book a
+seat. Open the same page in a second (incognito) tab, sign up as a different
+user, and try to hold the same seat from both — only one should succeed, and
+both tabs' seat maps update instantly.
 
 ## Testing (Phase 3)
 
