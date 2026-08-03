@@ -1,0 +1,94 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b0c10"/>
+      <stop offset="55%" stop-color="#111320"/>
+      <stop offset="100%" stop-color="#0b0c10"/>
+    </linearGradient>
+    <radialGradient id="glowPurple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 60) rotate(90) scale(260 420)">
+      <stop offset="0%" stop-color="#7c6cf6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7c6cf6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowGreen" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1080 300) rotate(-90) scale(220 340)">
+      <stop offset="0%" stop-color="#2fd480" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2fd480" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c6cf6"/>
+      <stop offset="100%" stop-color="#a08cff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#glowPurple)"/>
+  <rect width="1200" height="320" fill="url(#glowGreen)"/>
+
+  <!-- brand mark -->
+  <rect x="64" y="70" width="60" height="60" rx="16" fill="url(#markGrad)"/>
+  <text x="94" y="110" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">SF</text>
+
+  <!-- wordmark -->
+  <text x="140" y="112" font-size="46" font-weight="800" fill="#eef0f6" letter-spacing="-1">SeatFlow</text>
+
+  <!-- tagline -->
+  <text x="66" y="168" font-size="21" font-weight="600" fill="#c7cbe0">Real-Time Seat Booking, Built for Concurrency</text>
+  <text x="66" y="198" font-size="15" fill="#8b93a7">Redis locks + Postgres row-level locking &#8212; zero double-bookings, guaranteed.</text>
+
+  <!-- tech chips -->
+  <g font-size="12.5" font-weight="700">
+    <rect x="66" y="222" width="76" height="28" rx="14" fill="#161a26" stroke="#262c3d"/>
+    <text x="104" y="240" fill="#c7cbe0" text-anchor="middle">FastAPI</text>
+
+    <rect x="150" y="222" width="90" height="28" rx="14" fill="#161a26" stroke="#262c3d"/>
+    <text x="195" y="240" fill="#c7cbe0" text-anchor="middle">PostgreSQL</text>
+
+    <rect x="248" y="222" width="66" height="28" rx="14" fill="#161a26" stroke="#262c3d"/>
+    <text x="281" y="240" fill="#c7cbe0" text-anchor="middle">Redis</text>
+
+    <rect x="322" y="222" width="104" height="28" rx="14" fill="#161a26" stroke="#262c3d"/>
+    <text x="374" y="240" fill="#c7cbe0" text-anchor="middle">WebSocket</text>
+
+    <rect x="434" y="222" width="88" height="28" rx="14" fill="#161a26" stroke="#262c3d"/>
+    <text x="478" y="240" fill="#c7cbe0" text-anchor="middle">Next.js</text>
+
+    <rect x="530" y="222" width="82" height="28" rx="14" fill="#161a26" stroke="#262c3d"/>
+    <text x="571" y="240" fill="#c7cbe0" text-anchor="middle">Docker</text>
+  </g>
+
+  <!-- decorative seat grid -->
+  <g>
+    <!-- row template: 10 seats x 6 rows, seat = 26x26 rx6, gap 12 -->
+    <!-- generated grid starting x=700 y=48 -->
+    <!-- default seat color -->
+    <g fill="#1c202e" stroke="#2b3145" stroke-width="1">
+      <!-- rows -->
+      <!-- row 1 -->
+      <rect x="700" y="48" width="26" height="26" rx="6"/><rect x="738" y="48" width="26" height="26" rx="6"/><rect x="776" y="48" width="26" height="26" rx="6"/><rect x="814" y="48" width="26" height="26" rx="6"/><rect x="852" y="48" width="26" height="26" rx="6"/><rect x="890" y="48" width="26" height="26" rx="6"/><rect x="928" y="48" width="26" height="26" rx="6"/><rect x="966" y="48" width="26" height="26" rx="6"/><rect x="1004" y="48" width="26" height="26" rx="6"/><rect x="1042" y="48" width="26" height="26" rx="6"/><rect x="1080" y="48" width="26" height="26" rx="6"/>
+      <!-- row 2 -->
+      <rect x="700" y="86" width="26" height="26" rx="6"/><rect x="738" y="86" width="26" height="26" rx="6"/><rect x="776" y="86" width="26" height="26" rx="6"/><rect x="814" y="86" width="26" height="26" rx="6"/><rect x="852" y="86" width="26" height="26" rx="6"/><rect x="890" y="86" width="26" height="26" rx="6"/><rect x="928" y="86" width="26" height="26" rx="6"/><rect x="966" y="86" width="26" height="26" rx="6"/><rect x="1004" y="86" width="26" height="26" rx="6"/><rect x="1042" y="86" width="26" height="26" rx="6"/><rect x="1080" y="86" width="26" height="26" rx="6"/>
+      <!-- row 3 -->
+      <rect x="700" y="124" width="26" height="26" rx="6"/><rect x="738" y="124" width="26" height="26" rx="6"/><rect x="776" y="124" width="26" height="26" rx="6"/><rect x="814" y="124" width="26" height="26" rx="6"/><rect x="852" y="124" width="26" height="26" rx="6"/><rect x="890" y="124" width="26" height="26" rx="6"/><rect x="928" y="124" width="26" height="26" rx="6"/><rect x="966" y="124" width="26" height="26" rx="6"/><rect x="1004" y="124" width="26" height="26" rx="6"/><rect x="1042" y="124" width="26" height="26" rx="6"/><rect x="1080" y="124" width="26" height="26" rx="6"/>
+      <!-- row 4 -->
+      <rect x="700" y="162" width="26" height="26" rx="6"/><rect x="738" y="162" width="26" height="26" rx="6"/><rect x="776" y="162" width="26" height="26" rx="6"/><rect x="814" y="162" width="26" height="26" rx="6"/><rect x="852" y="162" width="26" height="26" rx="6"/><rect x="890" y="162" width="26" height="26" rx="6"/><rect x="928" y="162" width="26" height="26" rx="6"/><rect x="966" y="162" width="26" height="26" rx="6"/><rect x="1004" y="162" width="26" height="26" rx="6"/><rect x="1042" y="162" width="26" height="26" rx="6"/><rect x="1080" y="162" width="26" height="26" rx="6"/>
+      <!-- row 5 -->
+      <rect x="700" y="200" width="26" height="26" rx="6"/><rect x="738" y="200" width="26" height="26" rx="6"/><rect x="776" y="200" width="26" height="26" rx="6"/><rect x="814" y="200" width="26" height="26" rx="6"/><rect x="852" y="200" width="26" height="26" rx="6"/><rect x="890" y="200" width="26" height="26" rx="6"/><rect x="928" y="200" width="26" height="26" rx="6"/><rect x="966" y="200" width="26" height="26" rx="6"/><rect x="1004" y="200" width="26" height="26" rx="6"/><rect x="1042" y="200" width="26" height="26" rx="6"/><rect x="1080" y="200" width="26" height="26" rx="6"/>
+      <!-- row 6 -->
+      <rect x="700" y="238" width="26" height="26" rx="6"/><rect x="738" y="238" width="26" height="26" rx="6"/><rect x="776" y="238" width="26" height="26" rx="6"/><rect x="814" y="238" width="26" height="26" rx="6"/><rect x="852" y="238" width="26" height="26" rx="6"/><rect x="890" y="238" width="26" height="26" rx="6"/><rect x="928" y="238" width="26" height="26" rx="6"/><rect x="966" y="238" width="26" height="26" rx="6"/><rect x="1004" y="238" width="26" height="26" rx="6"/><rect x="1042" y="238" width="26" height="26" rx="6"/><rect x="1080" y="238" width="26" height="26" rx="6"/>
+    </g>
+
+    <!-- highlighted seats: booked (green), held (amber), selected (purple) -->
+    <rect x="814" y="86" width="26" height="26" rx="6" fill="#2fd480"/>
+    <rect x="928" y="124" width="26" height="26" rx="6" fill="#2fd480"/>
+    <rect x="1004" y="48" width="26" height="26" rx="6" fill="#2fd480"/>
+    <rect x="738" y="162" width="26" height="26" rx="6" fill="#f5b942"/>
+    <rect x="1042" y="200" width="26" height="26" rx="6" fill="#f5b942"/>
+    <rect x="890" y="200" width="26" height="26" rx="6" fill="#7c6cf6"/>
+    <rect x="966" y="238" width="26" height="26" rx="6" fill="#7c6cf6"/>
+    <rect x="776" y="48" width="26" height="26" rx="6" fill="#7c6cf6"/>
+  </g>
+
+  <!-- top-right pulse dot suggesting live/real-time -->
+  <circle cx="1146" cy="34" r="5" fill="#2fd480"/>
+  <circle cx="1146" cy="34" r="9" fill="none" stroke="#2fd480" stroke-width="1.5" opacity="0.5"/>
+  <text x="1132" y="38" font-size="11" fill="#2fd480" text-anchor="end" font-weight="700">LIVE</text>
+</svg>
