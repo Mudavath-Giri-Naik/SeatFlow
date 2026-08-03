@@ -3,6 +3,8 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
 
+from app.schemas.venue import VenueRead
+
 
 class ShowCreate(BaseModel):
     venue_id: uuid.UUID
@@ -18,3 +20,4 @@ class ShowRead(BaseModel):
     title: str
     starts_at: datetime
     created_at: datetime
+    venue: VenueRead

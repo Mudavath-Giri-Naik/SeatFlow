@@ -5,9 +5,12 @@ venue/show/seat can be created through /docs instead of only via the seed
 script.
 """
 
-from fastapi import APIRouter, Depends, status
+import uuid
+
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from app.api.deps import get_current_user
 from app.core.database import get_db
@@ -50,14 +53,23 @@ async def create_show(
     show = Show(**payload.model_dump())
     db.add(show)
     await db.commit()
-    await db.refresh(show)
-    return show
+    result = await db.execute(select(Show).options(selectinload(Show.venue)).where(Show.id == show.id))
+    return result.scalar_one()
 
 
 @router.get("/shows", response_model=list[ShowRead])
 async def list_shows(db: AsyncSession = Depends(get_db)) -> list[Show]:
-    result = await db.execute(select(Show))
+    result = await db.execute(select(Show).options(selectinload(Show.venue)).order_by(Show.starts_at))
     return list(result.scalars().all())
+
+
+@router.get("/shows/{show_id}", response_model=ShowRead)
+async def get_show(show_id: uuid.UUID, db: AsyncSession = Depends(get_db)) -> Show:
+    result = await db.execute(select(Show).options(selectinload(Show.venue)).where(Show.id == show_id))
+    show = result.scalar_one_or_none()
+    if show is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Show not found")
+    return show
 
 
 @router.post("/seats", response_model=SeatRead, status_code=status.HTTP_201_CREATED)
