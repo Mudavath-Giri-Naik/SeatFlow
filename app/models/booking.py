@@ -20,7 +20,9 @@ class Booking(UUIDPKMixin, TimestampMixin, Base):
     seat_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("seats.id", ondelete="CASCADE"), nullable=False)
     user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     status: Mapped[BookingStatus] = mapped_column(
-        Enum(BookingStatus, name="booking_status"), default=BookingStatus.HELD, nullable=False
+        Enum(BookingStatus, name="booking_status", values_callable=lambda enum_cls: [e.value for e in enum_cls]),
+        default=BookingStatus.HELD,
+        nullable=False,
     )
 
     held_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
